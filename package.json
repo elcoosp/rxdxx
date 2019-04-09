@@ -3,6 +3,7 @@
 	"private": true,
 	"scripts": {
 		"commit": "git-cz",
+		"lint": "eslint **/*.js",
 		"test": "jest",
 		"test:watch": "jest --watchAll"
 	},
@@ -12,6 +13,12 @@
 		"@babel/preset-env": "7.4.3",
 		"commitizen": "3.0.7",
 		"cz-conventional-changelog": "2.1.0",
+		"eslint": "5.16.0",
+		"eslint-config-standard": "12.0.0",
+		"eslint-plugin-import": "2.16.0",
+		"eslint-plugin-node": "8.0.1",
+		"eslint-plugin-promise": "4.1.1",
+		"eslint-plugin-standard": "4.0.0",
 		"jest": "24.7.1",
 		"lerna": "^3.13.2"
 	},
@@ -21,6 +28,7 @@
 		}
 	},
 	"dependencies": {
-		"@babel/polyfill": "7.4.3"
+		"@babel/polyfill": "7.4.3",
+		"eslint-plugin-jest": "22.4.1"
 	}
 }
