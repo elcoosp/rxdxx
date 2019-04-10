@@ -32,6 +32,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run lint
-      - run: npm test:cov
+      - run: npm run test:cov
       - codecov/upload:
         file: { { coverage_report_filepath } }
