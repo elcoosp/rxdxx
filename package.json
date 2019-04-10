@@ -4,7 +4,8 @@
 	"scripts": {
 		"commit": "git-cz",
 		"lint": "eslint **/*.js",
-		"test": "jest",
+		"test": "jest ",
+		"test:cov": "jest --coverage",
 		"test:watch": "jest --watchAll"
 	},
 	"devDependencies": {
