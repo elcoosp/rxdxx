@@ -1,7 +1,7 @@
 import { asyncStateSlice } from '..'
 
 describe('asyncStateSlice', () => {
-  it('should return an object with errors ( : []), isPending, isSuccess, isFailure (: false) fields', () => {
+  it('should return an object with errors ( : []), isPending, isSuccess, isFailure (= false) fields', () => {
     expect(asyncStateSlice()).toEqual({
       errors: [],
       isSuccess: false,
