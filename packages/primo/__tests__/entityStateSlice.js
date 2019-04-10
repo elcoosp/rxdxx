@@ -1,8 +1,8 @@
-import { stateSlice } from '..'
+import { entityStateSlice } from '..'
 
 describe('stateSlice', () => {
   it('should return an object with byId ({}), allIds ([]), and meta ({}) fields', () => {
-    expect(stateSlice()).toEqual({ byId: {}, allIds: [], meta: {} })
+    expect(entityStateSlice()).toEqual({ byId: {}, allIds: [], meta: {} })
   })
   it('should return the given byId, allIds and meta fields', () => {
     const byId = { 0: { id: 0 } }
@@ -14,7 +14,7 @@ describe('stateSlice', () => {
       meta,
       someFieldNotReturned: ''
     }
-    expect(stateSlice(draft)).toEqual({
+    expect(entityStateSlice(draft)).toEqual({
       byId,
       allIds,
       meta
