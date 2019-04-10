@@ -6,6 +6,29 @@ export function actionCreator (type = '') {
   })
 }
 
-export function stateSlice ({ byId = {}, allIds = [], meta = {} } = {}) {
+export function asyncStateSlice ({
+  errors = [],
+  isSuccess = false,
+  isPending = false,
+  isFailure = false
+} = {}) {
+  return {
+    errors,
+    isSuccess,
+    isFailure,
+    isPending
+  }
+}
+export function entityStateSlice ({ byId = {}, allIds = [], meta = {} } = {}) {
   return { byId, allIds, meta }
 }
+
+/* API */
+const primo = {
+  stateSlice: {
+    async: asyncStateSlice,
+    entity: entityStateSlice
+  }
+}
+
+export default primo
