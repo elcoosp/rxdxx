@@ -2,11 +2,14 @@
 	"name": "@rxdxx/primo",
 	"version": "0.0.2",
 	"description": "",
-	"main": "./../../dist/primo",
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",
 	"license": "MIT",
-	"gitHead": "f3cb1604344c4a1bb3c1faf742a11956c60864ab"
+	"gitHead": "8c986837857ea3b0382e71e86ca42f6450a8e50c"
 }

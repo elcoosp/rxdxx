@@ -3,7 +3,7 @@ import babel from 'rollup-plugin-babel'
 import minify from 'rollup-plugin-babel-minify'
 
 const output = format => packageName => ({
-  file: `dist/${packageName}/index.${format}.js`,
+  file: `packages/${packageName}/dist/index.${format}.js`,
   format,
   sourcemap: true,
   ...(format === 'umd' ? { name: packageName } : {})
