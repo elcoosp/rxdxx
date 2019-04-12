@@ -1,13 +1,10 @@
 {
-	"packages": [
-		"packages/*"
-	],
+	"packages": ["packages/*"],
 	"version": "0.0.1",
 	"command": {
 		"publish": {
-			"ignoreChanges": [
-				"*.md"
-			],
+			"npmClientArgs": ["--access public"],
+			"ignoreChanges": ["*.md"],
 			"message": "chore(release): publish"
 		}
 	}
