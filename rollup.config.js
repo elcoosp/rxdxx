@@ -2,26 +2,30 @@ import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import minify from 'rollup-plugin-babel-minify'
 
-const output = packageName => format => ({
+const output = format => packageName => ({
   file: `dist/${packageName}/index.${format}.js`,
   format,
-  sourcemap: true
+  sourcemap: true,
+  ...(format === 'umd' ? { name: packageName } : {})
 })
 
-const primo = output('primo')
+const outputs = packageName =>
+  ['esm', 'cjs', 'umd'].map(format => output(format)(packageName))
 
-export default [
-  {
-    input: 'packages/primo/index.js',
-    output: [primo('esm'), primo('cjs')],
-    plugins: [
-      resolve(),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      minify({
-        comments: false
-      })
-    ]
-  }
+const entry = packageName => ({
+  input: `packages/${packageName}/index.js`,
+  output: outputs(packageName),
+  plugins
+})
+
+const plugins = [
+  resolve(),
+  babel({
+    exclude: 'node_modules/**'
+  }),
+  minify({
+    comments: false
+  })
 ]
+
+export default [entry('primo')]
