@@ -2,13 +2,11 @@
 	"name": "@rxdxx/primo",
 	"version": "0.0.3",
 	"description": "",
-	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"main": "dist/index.cjs.js",
 	"files": [
 		"dist"
 	],
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
 	"author": "",
 	"license": "MIT",
 	"gitHead": "8c986837857ea3b0382e71e86ca42f6450a8e50c"
