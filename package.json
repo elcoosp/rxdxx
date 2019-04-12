@@ -1,8 +1,9 @@
 {
 	"name": "root",
 	"version": "0.0.0",
-	"private": true,
+	"description": "Redux reduced",
 	"scripts": {
+		"prepublishOnly": "npm run build",
 		"commit": "git-cz",
 		"lint": "eslint **/*.js --fix",
 		"test": "jest ",
@@ -41,12 +42,32 @@
 		"rollup-plugin-babel-minify": "8.0.0",
 		"rollup-plugin-node-resolve": "4.2.3"
 	},
+	"dependencies": {
+		"@babel/polyfill": "7.4.3"
+	},
 	"config": {
 		"commitizen": {
 			"path": "cz-conventional-changelog"
 		}
 	},
-	"dependencies": {
-		"@babel/polyfill": "7.4.3"
-	}
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/elcoosp/rxdxx.git"
+	},
+	"homepage": "https://github.com/elcoosp/rxdxx",
+	"bugs": "https://github.com/elcoosp/rxdxx/issues",
+	"license": "MIT",
+	"author": {
+		"name": "Louis Cospain",
+		"url": "https://lcospain.com/"
+	},
+	"keywords": [
+		"redux",
+		"reducer",
+		"action creators",
+		"state",
+		"state management",
+		"action types",
+		"relations"
+	]
 }
