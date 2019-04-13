@@ -1,17 +1,11 @@
 {
-	"packages": [
-		"packages/*"
-	],
+	"packages": ["packages/*"],
 	"version": "0.0.9",
 	"command": {
 		"publish": {
-			"npmClientArgs": [
-				"--access public"
-			],
-			"ignoreChanges": [
-				"*.md"
-			],
-			"message": "chore(release): publish"
+			"npmClientArgs": ["--access public"],
+			"ignoreChanges": ["*.md"],
+			"message": "chore(release): publish [ci skip]"
 		}
 	}
 }
