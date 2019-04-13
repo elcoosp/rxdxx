@@ -7,7 +7,7 @@ orbs:
   codecov: codecov/codecov@1.0.4
 
 commands:
-  setup-repo:
+  setup_repo:
     description: "Install dependencies, cache them, bootstrap packages"
     steps:
       - checkout
@@ -29,21 +29,13 @@ commands:
           key: v1-dependencies-{{ checksum "package.json" }}
 
 jobs:
-  build:
-    docker:
-      - image: circleci/node:10.15.3
-    working_directory: ~/repo
-    steps:
-      - setup-repo
-      - run:
-          name: Build with rollup
-          command: npm run build
 
   test:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:10.15.3
     steps:
-      - setup-repo
+      - setup_repo
       - run:
           name: Lint source code
           command: npm run lint
@@ -55,9 +47,19 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+  build:
+    docker:
+      - image: circleci/node:10.15.3
+    steps:
+      - setup_repo
+      - run:
+          name: Build with rollup
+          command: npm run build
+
   deploy:
     docker:
       - image: circleci/node:10.15.3
+    working_directory: ~/repo
     steps:
       - attach_workspace:
           at: ~/repo
