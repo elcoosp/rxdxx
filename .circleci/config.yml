@@ -19,11 +19,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: 
-        name: Install dependencies
-        command: npm install
+          name: Install dependencies
+          command: npm install
       - run:
-        name: Bootstrap packages
-        command: npm run bootstrap
+          name: Bootstrap packages
+          command: npm run bootstrap
       - save_cache:
           paths:
             - node_modules
@@ -39,11 +39,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Lint source code
-        command: npm run lint
+          name: Lint source code
+          command: npm run lint
       - run:
-        name: Run tests and generate coverage
-        command: npm run test:cov
+          name: Run tests and generate coverage
+          command: npm run test:cov
       - codecov/upload:
         file: { { coverage_report_filepath } }
   deploy:
@@ -52,11 +52,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Authenticate with registry
-        command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
       - run: 
-        name: Publish all changed packages
-        command: lerna publish
+          name: Publish all changed packages
+          command: lerna publish
 workflows:
   version: 2
   buildTestDeploy:
