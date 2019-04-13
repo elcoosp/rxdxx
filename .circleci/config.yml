@@ -59,7 +59,7 @@ jobs:
         command: lerna publish
 workflows:
   version: 2
-  Build test and deploy:
+  buildTestDeploy:
     jobs:
       - test
       - build:
