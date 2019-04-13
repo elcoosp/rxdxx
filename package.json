@@ -5,6 +5,7 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"publish:ci": "lerna publish --yes",
+		"version:push": "lerna version --conventional-commits",
 		"commit": "git-cz",
 		"lint": "eslint **/*.js --fix",
 		"test": "jest ",
