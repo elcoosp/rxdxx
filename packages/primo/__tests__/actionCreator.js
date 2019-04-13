@@ -1,4 +1,4 @@
-import { actionCreator } from '..'
+import { actionCreator } from '../src'
 
 describe('actionCreator', () => {
   it('should return an action creator, which, when called should return an object with type, payload and meta fields', () => {

@@ -1,4 +1,4 @@
-import { entityStateSlice } from '..'
+import { entityStateSlice } from '../src'
 
 describe('stateSlice', () => {
   it('should return an object with byId ({}), allIds ([]), and meta ({}) fields', () => {
