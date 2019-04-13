@@ -7,6 +7,9 @@
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"author": "",
 	"license": "MIT",
 	"gitHead": "8c986837857ea3b0382e71e86ca42f6450a8e50c"
