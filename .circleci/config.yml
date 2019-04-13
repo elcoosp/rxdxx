@@ -19,7 +19,7 @@ commands:
             - v1-dependencies-
       - run: 
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - run:
           name: Bootstrap packages
           command: npm run bootstrap
