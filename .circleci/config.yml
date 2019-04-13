@@ -31,8 +31,7 @@ commands:
           root: ~/repo
           paths: .
       - attach_workspace:
-        at: ~/repo
-Note: The commands stanza is available in configuration version 2.1 and later.
+          at: ~/repo
 
 jobs:
   build:
