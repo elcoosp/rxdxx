@@ -5,6 +5,7 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"deploy": "lerna publish --yes --conventional-commits --github-release",
+		"acp": "git add . && npm run commit && git push",
 		"commit": "git-cz",
 		"lint": "eslint **/*.js --fix",
 		"test": "jest ",
