@@ -4,7 +4,7 @@
 		"dictionaries": ["jsdoc"]
 	},
 	"source": {
-		"include": ["packages", "package.json", "README.md"],
+		"include": ["packages/primo/src", "package.json", "README.md"],
 		"includePattern": ".js$"
 	},
 	"plugins": ["plugins/markdown"],

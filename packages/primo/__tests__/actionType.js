@@ -1,4 +1,4 @@
-import { actionType } from '..'
+import { actionType } from '../src'
 
 describe('actionType', () => {
   const action = 'action'

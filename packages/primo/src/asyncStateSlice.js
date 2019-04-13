@@ -2,10 +2,10 @@
 
 /**
  * @typedef {object} AsyncStateSliceObject
- * @property  {array} errors=Array An array of errors
- * @property  {boolean} isSuccess=false Success status
- * @property  {boolean} isPending=false Pending status
- * @property  {boolean} isFailure=false Failure status
+ * @property {array} [errors=Array] An array of errors
+ * @property {boolean} [isSuccess=false] Success status
+ * @property {boolean} [isPending=false] Pending status
+ * @property {boolean} [isFailure=false] Failure status
  */
 
 /**

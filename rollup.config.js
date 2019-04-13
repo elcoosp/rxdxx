@@ -13,7 +13,7 @@ const outputs = packageName =>
   ['esm', 'cjs', 'umd'].map(format => output(format)(packageName))
 
 const entry = packageName => ({
-  input: `packages/${packageName}/index.js`,
+  input: `packages/${packageName}/src/index.js`,
   output: outputs(packageName),
   plugins
 })

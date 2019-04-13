@@ -4,10 +4,12 @@
 	"description": "Redux reduced",
 	"scripts": {
 		"prepublishOnly": "npm run build",
+		"publish:ci": "lerna publish --yes --conventional-commits",
 		"commit": "git-cz",
 		"lint": "eslint **/*.js --fix",
 		"test": "jest ",
 		"build": "rollup -c",
+		"bootstrap": "lerna bootstrap --hoist",
 		"doc": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
 		"test:cov": "jest --coverage",
 		"test:watch": "jest --watchAll"
