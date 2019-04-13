@@ -5,13 +5,11 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.4
-jobs:
-  build:
-    docker:
-      - image: circleci/node:10.15.3
-    working_directory: ~/repo
+
+commands:
+  setupRepo:
+    description: "Install dependencies, cache them, bootstrap packages"
     steps:
-      - checkout
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -33,6 +31,17 @@ jobs:
           paths: .
       - attach_workspace:
         at: ~/repo
+Note: The commands stanza is available in configuration version 2.1 and later.
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - setupRepo
+
   test:
     docker:
       - image: circleci/node:10.15.3
@@ -57,6 +66,7 @@ jobs:
       - run: 
           name: Publish all changed packages
           command: lerna publish
+
 workflows:
   version: 2
   buildTestDeploy:
