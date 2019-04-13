@@ -1,6 +1,6 @@
 import { actionType } from '../src'
 
-describe('actionType', () => {
+describe('actionType()', () => {
   const action = 'action'
   const namespace = 'namespace'
   const status = 'status'

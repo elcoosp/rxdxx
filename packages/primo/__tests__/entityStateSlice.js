@@ -1,6 +1,6 @@
 import { entityStateSlice } from '../src'
 
-describe('stateSlice', () => {
+describe('stateSlice()', () => {
   it('should return an object with byId ({}), allIds ([]), and meta ({}) fields', () => {
     expect(entityStateSlice()).toEqual({ byId: {}, allIds: [], meta: {} })
   })
