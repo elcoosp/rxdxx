@@ -2,9 +2,9 @@
 
 /**
  * @typedef {object} EntityStateSlice
- * @property  {array} allIds=Array All of the entity ids, for ordering
- * @property  {object} meta=Object Entity related informations
- * @property  {object} byId=false An object for quick id retrieval of entities
+ * @property  {array} [allIds=Array] All of the entity ids, for ordering
+ * @property  {object} [meta=Object] Entity related informations
+ * @property  {object} [byId=false] An object for quick id retrieval of entities
  */
 
 /**

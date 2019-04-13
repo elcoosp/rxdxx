@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @param {string} type='' The type of the returned actionc creator
+ * @param {string} [type=''] The type of the returned actionc creator
  * @returns {function} An action creator of the provided type
  */
 export default function actionCreator (type = '') {
