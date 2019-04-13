@@ -8,16 +8,8 @@ orbs:
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:10.15.3
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/repo
-
     steps:
       - checkout
       # Download and cache dependencies
@@ -26,7 +18,12 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: npm install
+      - run: 
+        name: Install dependencies
+        command: npm install
+      - run:
+        name: Bootstrap packages
+        command: npm run bootstrap
       - save_cache:
           paths:
             - node_modules
@@ -34,16 +31,40 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
-      - run: npm run lint
-      - run: npm run test:cov
-      - codecov/upload:
-        file: { { coverage_report_filepath } }
       - attach_workspace:
         at: ~/repo
+  test:
+    docker:
+      - image: circleci/node:10.15.3
+    steps:
+      - checkout
+      - run:
+        name: Lint source code
+        command: npm run lint
+      - run:
+        name: Run tests and generate coverage
+        command: npm run test:cov
+      - codecov/upload:
+        file: { { coverage_report_filepath } }
+  deploy:
+    docker:
+      - image: circleci/node:10.15.3
+    steps:
+      - checkout
       - run:
         name: Authenticate with registry
         command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-      # Do not publish now !
-      # - run:
-      #     name: Publish package
-      #     command: npm publish --access public
+      - run: 
+        name: Publish all changed packages
+        command: lerna publish
+workflows:
+  version: 2
+  Build test and deploy:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
