@@ -19,7 +19,7 @@ commands:
             - v1-dependencies-
       - run: 
           name: Install dependencies
-          command: npm ci
+          command: npm install
       - run:
           name: Bootstrap packages
           command: npm run bootstrap
@@ -34,21 +34,15 @@ jobs:
       - image: circleci/node:10.15.3
     working_directory: ~/repo
     steps:
-      - attach_workspace:
-        at: ~/repo
-      # - setup-repo
+      - setup-repo
       - run:
           name: Build with rollup
           command: npm run build
-      - persist_to_workspace:
-        root: ~/repo
-        paths: .
 
   test:
     docker:
       - image: circleci/node:10.15.3
     steps:
-
       - setup-repo
       - run:
           name: Lint source code
@@ -59,15 +53,14 @@ jobs:
       - codecov/upload:
         file: { { coverage_report_filepath } }
       - persist_to_workspace:
-        root: ~/repo
-        paths: .
+          root: ~/repo
+          paths: .
   deploy:
     docker:
       - image: circleci/node:10.15.3
     steps:
-      # - setup-repo
       - attach_workspace:
-        at: ~/repo
+          at: ~/repo
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
