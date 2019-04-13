@@ -4,6 +4,7 @@
 	"description": "Redux reduced",
 	"scripts": {
 		"prepublishOnly": "npm run build",
+		"publish:ci": "lerna publish --yes",
 		"commit": "git-cz",
 		"lint": "eslint **/*.js --fix",
 		"test": "jest ",

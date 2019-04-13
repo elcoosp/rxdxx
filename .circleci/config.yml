@@ -68,7 +68,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
       - run: 
           name: Publish all changed packages
-          command: lerna publish
+          command: npm run publish:ci
 
 workflows:
   version: 2
