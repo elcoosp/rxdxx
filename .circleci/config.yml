@@ -67,6 +67,9 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Set github config to allow push
+          command: git config --global user.email "elcoosp@gmail.com" && git config --global user.name "elcoosp"
       - run: 
           name: Publish all changed packages
           command: npm run publish:ci
