@@ -11,11 +11,11 @@ export function all (entityStateSliceGetter) {
   }
 }
 
-function selectors (entityStateSliceGetter) {
+function entitySelectors (entityStateSliceGetter) {
   return {
     all: all(entityStateSliceGetter),
     byId: byId(entityStateSliceGetter)
   }
 }
 
-export default selectors
+export default entitySelectors

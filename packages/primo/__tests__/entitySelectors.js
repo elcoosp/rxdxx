@@ -1,4 +1,4 @@
-import { selectors, entityStateSlice } from '../src'
+import { entitySelectors, entityStateSlice } from '../src'
 
 describe('selectors', () => {
   const byId = { 0: { id: 0 }, 1: { id: 1 } }
@@ -9,7 +9,7 @@ describe('selectors', () => {
   })
   const state = { EntityName: slice }
   const entityStateSliceGetter = state => state.EntityName
-  const boundSelectors = selectors(entityStateSliceGetter)
+  const boundSelectors = entitySelectors(entityStateSliceGetter)
   describe('.all()', () => {
     it('should return an array of all the ordered entities', () => {
       expect(boundSelectors.all(state)).toEqual(allIds.map(id => byId[id]))
