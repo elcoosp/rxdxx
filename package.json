@@ -34,7 +34,7 @@
 		"eslint-plugin-standard": "4.0.0",
 		"eslint-plugin-unicorn": "8.0.2",
 		"expect-more-jest": "2.4.1",
-		"jest": "24.7.1",
+		"jest": "26.0.0",
 		"jest-chain": "1.1.2",
 		"jest-extended": "0.11.1",
 		"jsdoc": "3.5.5",
