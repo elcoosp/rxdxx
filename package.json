@@ -16,9 +16,9 @@
 		"test:watch": "jest --watchAll"
 	},
 	"devDependencies": {
-		"@babel/cli": "7.4.3",
-		"@babel/core": "7.4.3",
-		"@babel/preset-env": "7.4.3",
+		"@babel/cli": "7.24.1",
+		"@babel/core": "7.24.3",
+		"@babel/preset-env": "7.24.3",
 		"commitizen": "3.0.7",
 		"cz-conventional-changelog": "2.1.0",
 		"eslint": "5.16.0",
@@ -46,7 +46,7 @@
 		"rollup-plugin-node-resolve": "4.2.3"
 	},
 	"dependencies": {
-		"@babel/polyfill": "7.4.3"
+		"@babel/polyfill": "7.12.1"
 	},
 	"config": {
 		"commitizen": {
